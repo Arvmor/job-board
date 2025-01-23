@@ -69,7 +69,7 @@ const ProjectForm = ({
   const form = useForm<ProfileProjectType>({
     resolver: zodResolver(profileProjectSchema),
     defaultValues: {
-      projectThumbnail: selectedProject?.projectThumbnail || './main.svg',
+      projectThumbnail: selectedProject?.projectThumbnail || './main.png',
       projectSummary: selectedProject?.projectSummary || '',
       isFeature: selectedProject?.isFeature || false,
       projectGithub: selectedProject?.projectGithub || '',
@@ -123,7 +123,7 @@ const ProjectForm = ({
   const handleImageReset = () => {
     setFiles(null);
     setPreviewImg(null);
-    form.setValue('projectThumbnail', './main.svg');
+    form.setValue('projectThumbnail', './main.png');
   };
 
   return (

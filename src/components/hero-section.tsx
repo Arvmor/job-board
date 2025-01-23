@@ -9,15 +9,15 @@ const HeroSection = () => {
           <div className="flex flex-col items-center">
             <div className="flex flex-col items-center">
               <p className="py-2 px-3 rounded-full border text-sm my-4 dark:text-[#FFFF] text-[#020817] dark:bg-[#0F172A] dark:border-[#1E293B] bg-[#F1F5F9] border-[#E2E8F0]">
-                <span className="text-[#3259E8]">#1</span> Platform for jobs
+                <span className="text-[#7962e7]">#1</span> Platform for jobs
               </p>
               <h1 className="text-5xl font-bold leading-snug text-center dark:text-[#F8FAFC] text-[#020817]">
                 Build Your
-                <span className="career-span bg-[#3259E8] py-1 px-5 ml-1 font-bold rounded-xl text-white">
+                <span className="career-span bg-[#7962e7] py-1 px-5 ml-1 font-bold rounded-xl text-white">
                   Career
                 </span>
                 <br />
-                with 100xJobs
+                with MetaPro
               </h1>
               <p className="md:w-4/6 w-full text-center my-3 dark:text-[#94A3B8] text-[#64748B] font-medium ">
                 Unlock exclusive job and internship opportunities. Remote,
@@ -28,7 +28,7 @@ const HeroSection = () => {
               <Link
                 href={'/jobs'}
                 aria-label="explore-jobs"
-                className="md:w-fit w-full rounded-lg py-2 px-3 bg-[#3259E8] text-sm text-[#FFFF] font-medium hover:bg-[#3e63e9] text-center"
+                className="md:w-fit w-full rounded-lg py-2 px-3 bg-[#7962e7] text-sm text-[#FFFF] font-medium hover:bg-[#3e63e9] text-center"
               >
                 Explore Jobs
               </Link>

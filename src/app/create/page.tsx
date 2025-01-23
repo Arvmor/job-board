@@ -7,7 +7,7 @@ const page = () => {
       <div>
         <h1 className="text-center text-4xl font-semibold">Post a job</h1>
         <p className="text-center mt-6 text-lg dark:text-gray-300 text-gray-600">
-          100xJobs is trusted by leading companies
+          MetaPro is trusted by leading companies
         </p>
       </div>
 

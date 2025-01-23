@@ -5,7 +5,7 @@ const SignupPage = () => {
   return (
     <div className="my-20">
       <FormContainer
-        heading={'Welcome to 100xJobs'}
+        heading={'Welcome to MetaPro'}
         description={'Please enter your details to sign up.'}
       >
         <Signup />

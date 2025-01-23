@@ -7,7 +7,7 @@ const APP_PATHS = {
   JOBS: '/jobs',
   MANAGE_RECRUITERS: '/manage/recruiters',
   MANAGE_JOBS: '/manage/jobs',
-  CONTACT_US: 'mailto:vineetagarwal.now@gmail.com',
+  CONTACT_US: 'mailto:contact@metapro.app',
   TESTIMONIALS: '#testimonials',
   FAQS: '#faq',
   VERIFY_EMAIL: '/verify-email',

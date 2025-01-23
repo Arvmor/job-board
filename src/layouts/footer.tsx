@@ -13,7 +13,7 @@ const Footer = () => {
         ))}
       </ul>
       <div className="flex items-center md:flex-row flex-col-reverse">
-        <p className="text-[#94A3B8]">© 2024 100xJobs. All rights reserved.</p>
+        <p className="text-[#94A3B8]">© 2025 MetaPro. All rights reserved.</p>
         <div className="flex items-center ml-4 md:mb-0 mb-3 text-[#64748B]">
           {socials.map((social, i) => (
             <Link

@@ -40,7 +40,7 @@ const UploadResumeForm = ({ handleClose }: { handleClose: () => void }) => {
   const form = useForm<ProfileResumeType>({
     resolver: zodResolver(profileResumeSchema),
     defaultValues: {
-      resume: '/main.svg',
+      resume: '/main.png',
     },
   });
   const submitFile = async (file: File | null) => {
@@ -67,7 +67,7 @@ const UploadResumeForm = ({ handleClose }: { handleClose: () => void }) => {
 
   async function onSubmit(data: ProfileResumeType) {
     try {
-      data.resume = (await submitFile(file)) ?? '/main.svg';
+      data.resume = (await submitFile(file)) ?? '/main.png';
       const response = await addUserResume(data.resume);
 
       if (!response.status) {

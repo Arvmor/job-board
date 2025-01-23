@@ -77,8 +77,8 @@ const ProfileEducation = ({
             <div key={education.id} className="flex flex-col">
               <div className="flex gap-3 justify-start">
                 <div className="relative w-4 flex justify-center">
-                  <div className="absolute top-0 w-2 h-2 rounded-full bg-[#3259E8]"></div>
-                  <div className="w-[2px] h-full bg-gradient-to-b from-[#3259e8] to-[#F1F5F9] dark:to-[#0F172A]"></div>
+                  <div className="absolute top-0 w-2 h-2 rounded-full bg-[#7962e7]"></div>
+                  <div className="w-[2px] h-full bg-gradient-to-b from-[#7962e7] to-[#F1F5F9] dark:to-[#0F172A]"></div>
                 </div>
                 <div className="flex flex-col gap-2 mb-3 w-full">
                   <div className="flex justify-between">

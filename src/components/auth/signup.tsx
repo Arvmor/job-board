@@ -47,7 +47,9 @@ export const Signup = () => {
         });
       } else {
         toast({
-          title: response.message || 'Signup successful! Welcome to 100xJobs!',
+          title:
+            response.message ||
+            'Signup successful! Welcome to MetaPro Careers!',
           variant: 'success',
         });
 

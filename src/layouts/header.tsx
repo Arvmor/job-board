@@ -31,16 +31,14 @@ export const CompanyLogo = () => {
   return (
     <div className="flex items-center gap-2">
       <Image
-        src={'/main.svg'}
-        alt="100xJobs logo"
+        src={'/main.png'}
+        alt="MetaPro logo"
         width={30}
         height={30}
         className="rounded"
         priority
       />
-      <h3 className="text-xl font-bold">
-        100x<span className="text-blue-700">Jobs</span>
-      </h3>
+      <h3 className="text-xl font-bold">MetaPro</h3>
     </div>
   );
 };

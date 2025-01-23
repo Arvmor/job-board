@@ -17,7 +17,7 @@ const satoshi = localFont({
   variable: '--font-satoshi',
 });
 export const metadata: Metadata = {
-  title: '100xJobs',
+  title: 'MetaPro',
   description: 'Get your dream job',
   // icons: '/main.png',
 };

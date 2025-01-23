@@ -1,8 +1,8 @@
 import { startCronJob } from '@/actions/corn';
-import Faqs from '@/components/Faqs';
+// import Faqs from '@/components/Faqs';
 import HeroSection from '@/components/hero-section';
 import { JobLanding } from '@/components/job-landing';
-import Testimonials from '@/components/Testimonials';
+// import Testimonials from '@/components/Testimonials';
 
 const HomePage = async () => {
   startCronJob();
@@ -10,8 +10,8 @@ const HomePage = async () => {
     <div>
       <HeroSection />
       <JobLanding />
-      <Testimonials />
-      <Faqs />
+      {/* <Testimonials />
+      <Faqs /> */}
     </div>
   );
 };

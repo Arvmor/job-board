@@ -50,7 +50,7 @@ const config = {
         lightBgSecondary: '#F1F5F9',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: '#9381eb',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {

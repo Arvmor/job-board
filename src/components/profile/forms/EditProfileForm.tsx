@@ -79,7 +79,7 @@ const EditProfileForm = ({
   const onSubmit = async (data: ProfileSchemaType) => {
     try {
       if (file) {
-        data.avatar = (await submitImage(file)) ?? '/main.svg';
+        data.avatar = (await submitImage(file)) ?? '/main.png';
       }
       const response = await updateUserDetails(data);
 

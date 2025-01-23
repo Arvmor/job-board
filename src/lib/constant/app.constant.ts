@@ -8,7 +8,7 @@ import medium from '../../../public/medium.svg';
 import framer from '../../../public/framer.svg';
 import coinbase from '../../../public/coinbase.svg';
 
-export const GITHUB_REPO = 'https://github.com/code100x/job-board';
+export const GITHUB_REPO = 'https://github.com/Arvmor';
 
 export const nonUserNavbar = [
   { id: 1, label: 'Explore jobs', path: APP_PATHS.JOBS },
@@ -50,24 +50,28 @@ export const socials: {
   icon: IconProps['icon'];
 }[] = [
   {
-    icon: 'youtube',
-    href: 'https://www.youtube.com/@100xDevs-n1w',
+    icon: 'discord',
+    href: 'https://discord.gg/p9RZaBPSdF',
   },
-  { icon: 'twitter', href: 'https://x.com/100xDevs' },
+  { icon: 'twitter', href: 'https://x.com/theMetaPro' },
 ];
 
 export const footerItems = [
   {
     label: 'About Us',
-    href: '/',
+    href: 'https://metapro.app/',
   },
   {
     label: 'Terms of Service',
-    href: '/',
+    href: 'https://metapro.app/tos',
   },
   {
     label: 'Privacy Policy',
-    href: '/',
+    href: 'https://metapro.app/privacy',
+  },
+  {
+    label: 'Docs',
+    href: 'https://docs.metapro.app/',
   },
 ];
 

@@ -25,7 +25,7 @@ export const ProfileShareDialog = () => {
       icon: <Twitter className="h-5 w-5" />,
       shareFunction: () => {
         const text = encodeURIComponent(
-          `Check out my new profile at 100xdevs Job-Board: ${window.location.href}`
+          `Check out my new profile at MetaPro Job-Board: ${window.location.href}`
         );
         window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
       },
@@ -37,7 +37,7 @@ export const ProfileShareDialog = () => {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent('My New Profile');
         const summary = encodeURIComponent(
-          `Excited to share my new profile on 100xdevs Job-Board! Check it out here: ${url} #JobSearch #Hiring #OpenToWork`
+          `Excited to share my new profile on MetaPro Job-Board! Check it out here: ${url} #JobSearch #Hiring #OpenToWork`
         );
         window.open(
           `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,

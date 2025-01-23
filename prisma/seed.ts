@@ -21,9 +21,9 @@ const users = [
 
 
 const companies = [
-  { id: '1', compnayEmail: "careers@techcorps.com", companyName: 'Tech Corp', companyBio: 'Leading tech solutions provider specializing in innovative web development.', companyLogo: '/main.svg' },
-  { id: '2', companyEmail: "careers@globalsolutions.com", companyName: 'Global Solutions', companyBio: 'Global Solutions offers comprehensive IT services for businesses worldwide.', companyLogo: '/main.svg' },
-  { id: '3', companyEmail: 'careers@innovatech.com', companyName: 'Innovatech', companyBio: 'Innovatech specializes in backend systems and cloud-based solutions.', companyLogo: '/main.svg' },
+  { id: '1', compnayEmail: "careers@techcorps.com", companyName: 'Tech Corp', companyBio: 'Leading tech solutions provider specializing in innovative web development.', companyLogo: '/main.png' },
+  { id: '2', companyEmail: "careers@globalsolutions.com", companyName: 'Global Solutions', companyBio: 'Global Solutions offers comprehensive IT services for businesses worldwide.', companyLogo: '/main.png' },
+  { id: '3', companyEmail: 'careers@innovatech.com', companyName: 'Innovatech', companyBio: 'Innovatech specializes in backend systems and cloud-based solutions.', companyLogo: '/main.png' },
 ]
 
 
@@ -392,7 +392,7 @@ async function seedJobs() {
             type: j.type,
             workMode: j.workMode,
             currency: j.currency,
-            application: 'https://x.com/100xDevs',
+            application: 'https://x.com/theMetaPro',
             city: faker.location.city(),
             address: faker.location.city(),
             hasExperiencerange: j.hasExperiencerange,
@@ -400,7 +400,7 @@ async function seedJobs() {
             expiryDate: j.expiryDate,
             minExperience: j.minExperience,
             maxExperience: j.maxExperience,
-            companyLogo: '/main.svg',
+            companyLogo: '/main.png',
             hasSalaryRange: j.hasSalaryRange,
             minSalary: j.minSalary,
             maxSalary: j.maxSalary,

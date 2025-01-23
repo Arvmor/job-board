@@ -26,7 +26,7 @@ const ProfileHireme = ({
         <div className="flex gap-2 flex-col sm:flex-row items-center">
           <Link
             href={`mailto:${contactEmail ? contactEmail : email}`}
-            className="bg-[#3259E8] px-3 py-2 text-white rounded-sm flex gap-1"
+            className="bg-[#7962e7] px-3 py-2 text-white rounded-sm flex gap-1"
           >
             <Mail /> <p> Contact Me</p>
           </Link>
