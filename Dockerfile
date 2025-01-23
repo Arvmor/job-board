@@ -1,29 +1,45 @@
-FROM node:20-alpine3.18 AS deps
+# ----------------
+# Stage 1: deps
+# ----------------
+FROM node:20-alpine AS deps
 WORKDIR /app
-# Install OpenSSL 1.1 compat so Prisma can function
-RUN apk add --no-cache compat-openssl1.1
 
+# Copy package files and install dependencies
 COPY package*.json ./
-RUN npm i
+RUN npm install
 
-FROM node:20-alpine3.18 AS builder
+# ----------------
+# Stage 2: builder
+# ----------------
+FROM node:20-alpine AS builder
 WORKDIR /app
-RUN apk add --no-cache compat-openssl1.1
 
+# Copy all source code
 COPY . .
+
+# Copy node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
+
+# Generate Prisma client with MUSL + native binaries
 RUN npx prisma generate
+
+# Build your Next.js app (make sure you have "output: 'standalone'" in next.config.js)
 RUN npm run build
 
-FROM node:20-alpine3.18 AS runner
+# ----------------
+# Stage 3: runner
+# ----------------
+FROM node:20-alpine AS runner
 WORKDIR /app
-RUN apk add --no-cache compat-openssl1.1
 
+# Copy the standalone build output
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./
 
+# Expose the port and start
 EXPOSE 3000
 ENV PORT=3000
 CMD ["node", "server.js"]
+    
