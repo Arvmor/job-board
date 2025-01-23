@@ -1,11 +1,12 @@
-FROM node:20-alpine3.17 AS deps
+FROM node:20-alpine3.18 AS deps
 WORKDIR /app
+# Install OpenSSL 1.1 compat so Prisma can function
 RUN apk add --no-cache compat-openssl1.1
 
 COPY package*.json ./
 RUN npm i
 
-FROM node:20-alpine3.17 AS builder
+FROM node:20-alpine3.18 AS builder
 WORKDIR /app
 RUN apk add --no-cache compat-openssl1.1
 
@@ -14,7 +15,7 @@ COPY --from=deps /app/node_modules ./node_modules
 RUN npx prisma generate
 RUN npm run build
 
-FROM node:20-alpine3.17 AS runner
+FROM node:20-alpine3.18 AS runner
 WORKDIR /app
 RUN apk add --no-cache compat-openssl1.1
 
@@ -25,6 +26,4 @@ COPY --from=builder /app/package.json ./
 
 EXPOSE 3000
 ENV PORT=3000
-
 CMD ["node", "server.js"]
-    
