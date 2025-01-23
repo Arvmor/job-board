@@ -1,42 +1,23 @@
-# --------------------------
-# 1. Dependencies Stage
-# --------------------------
-FROM node:20-alpine AS deps
-
-# Install OpenSSL 1.1 compat so Prisma can function
+FROM node:20-alpine3.17 AS deps
+WORKDIR /app
 RUN apk add --no-cache compat-openssl1.1
 
-WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm i
 
-# --------------------------
-# 2. Build Stage
-# --------------------------
-FROM node:20-alpine AS builder
-
-# Install OpenSSL 1.1 compat for Prisma during build
+FROM node:20-alpine3.17 AS builder
+WORKDIR /app
 RUN apk add --no-cache compat-openssl1.1
 
-WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-
-# Generate Prisma client and build the Next.js app
 RUN npx prisma generate
 RUN npm run build
 
-# --------------------------
-# 3. Runtime Stage
-# --------------------------
-FROM node:20-alpine AS runner
-
-# Install OpenSSL 1.1 compat for Prisma in production
+FROM node:20-alpine3.17 AS runner
+WORKDIR /app
 RUN apk add --no-cache compat-openssl1.1
 
-WORKDIR /app
-
-# Copy the output from the build stage
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
