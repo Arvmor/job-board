@@ -3,8 +3,8 @@
 # --------------------------
 FROM node:20-alpine AS deps
 
-# Install OpenSSL 1.1 compatibility for Prisma
-RUN apk add --no-cache openssl1.1-compat
+# Install OpenSSL 1.1 compat so Prisma can function
+RUN apk add --no-cache compat-openssl1.1
 
 WORKDIR /app
 COPY package*.json ./
@@ -15,34 +15,35 @@ RUN npm install
 # --------------------------
 FROM node:20-alpine AS builder
 
-# Install OpenSSL 1.1 compatibility again if you run Prisma here
-RUN apk add --no-cache openssl1.1-compat
+# Install OpenSSL 1.1 compat for Prisma during build
+RUN apk add --no-cache compat-openssl1.1
 
 WORKDIR /app
 COPY . .
-# Copy node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
 
-# Run Prisma commands here (generate, migrate) if needed
+# Generate Prisma client and build the Next.js app
 RUN npx prisma generate
-
-# Build your Next.js (or other) app
 RUN npm run build
 
 # --------------------------
-# 3. Runner Stage
+# 3. Runtime Stage
 # --------------------------
 FROM node:20-alpine AS runner
 
-# Install OpenSSL 1.1 compatibility so the runtime can execute Prisma queries
-RUN apk add --no-cache openssl1.1-compat
+# Install OpenSSL 1.1 compat for Prisma in production
+RUN apk add --no-cache compat-openssl1.1
 
 WORKDIR /app
+
+# Copy the output from the build stage
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./
 
 EXPOSE 3000
-ENV PORT 3000
+ENV PORT=3000
+
 CMD ["node", "server.js"]
+    
