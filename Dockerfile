@@ -2,12 +2,13 @@ FROM node:20-alpine3.20 AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-RUN npm run db:seed
 
 FROM node:20-alpine3.20 AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+RUN npx prisma db push
+RUN node --loader ts-node/esm prisma/seed.ts
 RUN npx prisma generate
 RUN npm run build
 
