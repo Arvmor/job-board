@@ -1,17 +1,16 @@
-FROM node:20-alpine AS deps
-RUN ln -s /usr/lib/libssl.so.3 /lib/libssl.so.3
+FROM node:20-alpine3.20 AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-FROM node:20-alpine AS builder
+FROM node:20-alpine3.20 AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npx prisma generate
 RUN npm run build
 
-FROM node:20-alpine AS runner
+FROM node:20-alpine3.20 AS runner
 WORKDIR /app
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
