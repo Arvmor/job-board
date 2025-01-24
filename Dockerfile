@@ -7,8 +7,8 @@ FROM node:20-alpine3.20 AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN npm run db:seed
 RUN npx prisma generate
+RUN npm run db:seed
 RUN npm run build
 
 FROM node:20-alpine3.20 AS runner
